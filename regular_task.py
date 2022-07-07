@@ -28,7 +28,7 @@ for page in contacts_list_new:
   page_list = format_page.split(',')
   if page_list not in contacts_list:
     contacts_list.append(page_list)
-
+# pprint(contacts_list)
 
 for i in contacts_list:
   for j in contacts_list:
@@ -43,10 +43,25 @@ for i in contacts_list:
         i[5] = j[5]
       if i[6] is '':
         i[6] = j[6]
+
 contact_list = list()
 for page in contacts_list:
   if page not in contact_list:
     contact_list.append(page)
+
+a = 0
+c = len(contact_list)
+
+while a < c:
+  for i in contact_list:
+    for j in contact_list:
+      if i[0] in j and j != i:
+        # print(f'yes in {i[0]}')
+        contact_list.remove(i)
+        a += 1
+      else:
+        a += 1
+        continue
 
 pprint(contact_list)
 
